@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productoapp.ProductoController">
+
+    <top>
+        <Label
+            text="Gestión de Productos"
+            style="-fx-font-size: 20px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <TableView fx:id="tablaProductos">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" />
+                <TableColumn fx:id="colNombre" text="Nombre" />
+                <TableColumn fx:id="colCategoria" text="Categoría" />
+                <TableColumn fx:id="colPrecio" text="Precio" />
+                <TableColumn fx:id="colFecha" text="Fecha" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10"
+              style="-fx-padding: 10;">
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="ID:" />
+                <TextField fx:id="txtId" GridPane.columnIndex="1"/>
+
+                <Label text="Nombre:" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtNombre"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="Categoría:" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="cmbCategoria"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="2"/>
+
+                <Label text="Precio:" GridPane.rowIndex="3"/>
+                <TextField fx:id="txtPrecio"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+                <Label text="Fecha:" GridPane.rowIndex="4"/>
+                <DatePicker fx:id="dpFecha"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="4"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Guardar" onAction="#guardar"/>
+                <Button text="Eliminar" onAction="#eliminar"/>
+                <Button text="Limpiar" onAction="#limpiar"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>
+
+
+
