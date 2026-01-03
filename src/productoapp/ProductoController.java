@@ -113,7 +113,7 @@ public class ProductoController implements Initializable
         txtId.clear();
         txtNombre.clear();
         txtPrecio.clear();
-        cmbCategoria.setValue(null);
+        cmbCategoria.getSelectionModel().clearSelection();
         dpFecha.setValue(null);
     }
 }
