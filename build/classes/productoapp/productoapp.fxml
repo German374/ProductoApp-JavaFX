@@ -4,7 +4,9 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane
-    xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="productoapp.ProductoController">
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="productoapp.ProductoController">
 
     <top>
         <Label
@@ -25,36 +27,41 @@
     </center>
 
     <bottom>
-        <VBox spacing="10"
-              style="-fx-padding: 10;">
+        <VBox spacing="10" style="-fx-padding: 10;">
 
             <GridPane hgap="10" vgap="10">
                 <Label text="ID:" />
                 <TextField fx:id="txtId" GridPane.columnIndex="1"/>
 
                 <Label text="Nombre:" GridPane.rowIndex="1"/>
-                <TextField fx:id="txtNombre"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="1"/>
+                <TextField
+                    fx:id="txtNombre"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"/>
 
                 <Label text="Categoría:" GridPane.rowIndex="2"/>
-                <ComboBox fx:id="cmbCategoria"
-                          GridPane.columnIndex="1"
-                          GridPane.rowIndex="2"/>
+                <ComboBox
+                    fx:id="cmbCategoria"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"/>
 
                 <Label text="Precio:" GridPane.rowIndex="3"/>
-                <TextField fx:id="txtPrecio"
-                           GridPane.columnIndex="1"
-                           GridPane.rowIndex="3"/>
+                <TextField
+                    fx:id="txtPrecio"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="3"/>
 
                 <Label text="Fecha:" GridPane.rowIndex="4"/>
-                <DatePicker fx:id="dpFecha"
-                            GridPane.columnIndex="1"
-                            GridPane.rowIndex="4"/>
+                <DatePicker
+                    fx:id="dpFecha"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="4"/>
             </GridPane>
 
             <HBox spacing="10">
+                <Button text="Nuevo" onAction="#nuevo"/>
                 <Button text="Guardar" onAction="#guardar"/>
+                <Button text="Editar" onAction="#editar"/>
                 <Button text="Eliminar" onAction="#eliminar"/>
                 <Button text="Limpiar" onAction="#limpiar"/>
             </HBox>
@@ -63,6 +70,4 @@
     </bottom>
 
 </BorderPane>
-
-
 

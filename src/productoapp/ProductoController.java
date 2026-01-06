@@ -78,8 +78,32 @@ public class ProductoController implements Initializable
             "Tecnología",
             "Ropa"
         );
+
+        // Al seleccionar un producto se cargan los datos en los campos
+        tablaProductos.getSelectionModel().selectedItemProperty().addListener(
+            (obs, oldSelection, newSelection) ->
+            {
+                if (newSelection != null)
+                {
+                    txtId.setText(String.valueOf(newSelection.getId()));
+                    txtNombre.setText(newSelection.getNombre());
+                    cmbCategoria.setValue(newSelection.getCategoria());
+                    txtPrecio.setText(String.valueOf(newSelection.getPrecio()));
+                    dpFecha.setValue(newSelection.getFecha());
+                }
+            }
+        );
     }
 
+    // Botón nuevo
+    @FXML
+    private void nuevo()
+    {
+        limpiar();
+        tablaProductos.getSelectionModel().clearSelection();
+    }
+
+    // Botón guaradar
     @FXML
     private void guardar()
     {
@@ -95,18 +119,53 @@ public class ProductoController implements Initializable
         limpiar();
     }
 
+    // Botón editar
+    @FXML
+    private void editar()
+    {
+        Producto seleccionado = tablaProductos.getSelectionModel().getSelectedItem();
+
+        if (seleccionado != null)
+        {
+            seleccionado.setId(
+                Integer.parseInt(txtId.getText())
+            );
+
+            seleccionado.setNombre(
+                txtNombre.getText()
+            );
+
+            seleccionado.setCategoria(
+                cmbCategoria.getValue()
+            );
+
+            seleccionado.setPrecio(
+                Double.parseDouble(txtPrecio.getText())
+            );
+
+            seleccionado.setFecha(
+                dpFecha.getValue()
+            );
+
+            tablaProductos.refresh();
+            limpiar();
+        }
+    }
+
+    // Boton eliminar
     @FXML
     private void eliminar()
     {
-        Producto seleccionado =
-            tablaProductos.getSelectionModel().getSelectedItem();
+        Producto seleccionado = tablaProductos.getSelectionModel().getSelectedItem();
 
         if (seleccionado != null)
         {
             listaProductos.remove(seleccionado);
+            limpiar();
         }
     }
 
+    // Botón limpiar
     @FXML
     private void limpiar()
     {
@@ -117,5 +176,6 @@ public class ProductoController implements Initializable
         dpFecha.setValue(null);
     }
 }
+
 
 

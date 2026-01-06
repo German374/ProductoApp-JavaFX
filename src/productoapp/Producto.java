@@ -24,9 +24,19 @@ public class Producto
         return id;
     }
 
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
     public String getNombre()
     {
         return nombre;
+    }
+
+    public void setNombre(String nombre)
+    {
+        this.nombre = nombre;
     }
 
     public String getCategoria()
@@ -34,14 +44,29 @@ public class Producto
         return categoria;
     }
 
+    public void setCategoria(String categoria)
+    {
+        this.categoria = categoria;
+    }
+
     public double getPrecio()
     {
         return precio;
     }
 
+    public void setPrecio(double precio)
+    {
+        this.precio = precio;
+    }
+
     public LocalDate getFecha()
     {
         return fecha;
+    }
+
+    public void setFecha(LocalDate fecha)
+    {
+        this.fecha = fecha;
     }
 }
 
